@@ -31,6 +31,9 @@ export default function Layout({ children, title = 'AIToolHub - AI Tools & Techn
                 <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">
                   About
                 </Link>
+                <Link href="/simple-test" className="text-gray-600 dark:text-gray-300 hover:text-blue-600">
+                  Test AI
+                </Link>
               </nav>
             </div>
           </div>
