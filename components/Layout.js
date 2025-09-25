@@ -53,4 +53,4 @@ export default function Layout({ children, title = 'AIToolHub - AI Tools & Techn
       </div>
     </>
   )
-    }
+}
