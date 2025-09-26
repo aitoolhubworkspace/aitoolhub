@@ -1,3 +1,5 @@
+import { addArticle } from './get-articles'
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(200).json({ 
@@ -9,7 +11,6 @@ export default async function handler(req, res) {
   try {
     console.log('🚀 Starting content generation...')
     
-    // Create a simple, real article (bypassing any complex logic)
     const newArticle = {
       id: `article-${Date.now()}`,
       title: 'AI Tools Revolution: Complete 2024 Guide',
@@ -49,12 +50,16 @@ The AI revolution is here to stay. Embracing these tools now will give you a sig
       tags: ['ai-revolution', '2024', 'trends']
     }
 
-    console.log('✅ Article generated:', newArticle.title)
+    // Store the article so homepage can access it
+    const allArticles = addArticle(newArticle)
+
+    console.log('✅ Article generated and stored:', newArticle.title)
     
     res.status(200).json({
       success: true,
       message: 'Content generated successfully!',
       article: newArticle,
+      totalArticles: allArticles.length,
       timestamp: new Date().toISOString()
     })
     
