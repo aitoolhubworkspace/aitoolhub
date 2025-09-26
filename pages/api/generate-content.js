@@ -1,4 +1,4 @@
-import { addArticle } from './get-articles'
+import { addArticle } from './get-article'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     console.log('🚀 Starting content generation...')
     
     const newArticle = {
-      id: `article-${Date.now()}`,
+      id: `ai-article-${Date.now()}`,
       title: 'AI Tools Revolution: Complete 2024 Guide',
       summary: 'Discover how AI tools are transforming industries and what you need to know to stay ahead.',
       content: `
@@ -23,7 +23,7 @@ Artificial Intelligence has become the most transformative technology of our gen
 
 ## Key Trends for 2024
 - **Democratization of AI**: Tools are becoming more user-friendly
-- **Multimodal Capabilities**: Text, image, audio, and video integration
+- **Multimodal Capabilities**: Text, image, audio, and video integration  
 - **Real-time Processing**: Instant analysis and response
 - **Customization**: AI models tailored to specific industries
 
@@ -50,7 +50,7 @@ The AI revolution is here to stay. Embracing these tools now will give you a sig
       tags: ['ai-revolution', '2024', 'trends']
     }
 
-    // Store the article so homepage can access it
+    // Store the article in shared storage
     const allArticles = addArticle(newArticle)
 
     console.log('✅ Article generated and stored:', newArticle.title)
